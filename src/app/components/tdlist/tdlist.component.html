@@ -1,0 +1,16 @@
+<h2>
+  List of things to do..
+</h2>
+
+<addtask
+  (addTaskforSubmit)= "addTask($event)">
+</addtask>
+
+<div class = "tasksize">
+  <ul *ngFor ="let task of tasks;">
+    <div> Label : {{ task.label }} </div>
+    <div> Piority : {{ task.priority }} <button (click)="priorityUp(task)">&uarr;</button>  <button (click)="priorityDown(task)">&darr;</button></div>
+    <div [class.color1]="task.status"> Status : {{ task.status ? "completed" : "In-progress" }}  <button (click) = "changeStatus(task)"> {{ task.status ?  "In-progress" : "completed"  }} </button></div>
+    <hr/>
+  </ul>
+</div>
