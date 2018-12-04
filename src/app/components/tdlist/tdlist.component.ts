@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/task';
 import { TaskService } from 'src/app/services/task.service';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'tdlist',
@@ -9,24 +10,26 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class TdlistComponent implements OnInit {
   tasks : Task[];
-  constructor(private taskService: TaskService) { console.log("called constructor");}
+  constructor(private taskService: TaskService,
+              private http: Http) { }
   
   ngOnInit() {
-    this.tasks = this.taskService.getTasks();
+    this.taskService.getTasks().subscribe(res => this.tasks = res.json());
   }
 
   changeStatus(task:Task) {
-    this.taskService.changeStatus(task); 
+    this.taskService.changeStatus(task).subscribe(); 
   }
 
   priorityUp(task:Task) {
-    this.taskService.priorityUp(task);
+    this.taskService.priorityUp(task).subscribe();
   }
   priorityDown(task:Task) {
-    this.taskService.priorityDown(task);
+    this.taskService.priorityDown(task).subscribe();
   }
 
   addTask(task:Task) {
-    this.taskService.addTask(task);
+    this.taskService.addTask(task).subscribe();
+    this.tasks.push(task);
   }
 }

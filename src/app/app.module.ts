@@ -7,6 +7,7 @@ import { TdlistComponent } from './components/tdlist/tdlist.component';
 import { AddtaskComponent } from './components/addtask/addtask.component';
 import { FormsModule } from '@angular/forms';
 import { LabelcasePipe } from './pipes/labelcase.pipe';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LabelcasePipe } from './pipes/labelcase.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

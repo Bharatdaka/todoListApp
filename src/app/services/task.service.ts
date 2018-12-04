@@ -1,34 +1,43 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../models/task';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
   private tasks : Task[];
+  private url = 'http://localhost:3000/tasks';
 
-  constructor() {
-    this.tasks = [ new Task("Learn angular", 1, false),
-    new Task("Task2", 1, false),
-    new Task("Task3", 3, true)];
+  constructor(private http: Http) {
+    // this.tasks = [ new Task("Learn angular", 1, false),
+    // new Task("Task2", 1, false),
+    // new Task("Task3", 3, true)];
   }
+
+
    
-  getTasks() : Task[] {
-     return this.tasks;
+  getTasks() : Observable<Response> {
+    return this.http.get(this.url);
   }
 
   changeStatus(task:Task) {
-    task.status = !task.status; 
+    task.status = !task.status;
+    return this.http.put(this.url +'/' +task.id, task);
   }
 
   priorityUp(task:Task) {
     task.priority++;
+    return this.http.put(this.url +'/' +task.id, task);
   }
+
   priorityDown(task:Task) {
     task.priority--;
+    return this.http.put(this.url +'/' +task.id, task);
   }
 
   addTask(task:Task) {
-    this.tasks.push(task);
+    return this.http.post(this.url, task);
   }
 }
