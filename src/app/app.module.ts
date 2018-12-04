@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { LabelcasePipe } from './pipes/labelcase.pipe';
 import { HttpModule } from '@angular/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,

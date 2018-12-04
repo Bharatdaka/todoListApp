@@ -10,12 +10,7 @@ export class TaskService {
   private tasks : Task[];
   private url = 'http://localhost:3000/tasks';
 
-  constructor(private http: Http) {
-    // this.tasks = [ new Task("Learn angular", 1, false),
-    // new Task("Task2", 1, false),
-    // new Task("Task3", 3, true)];
-  }
-
+  constructor(private http: Http) {}
 
    
   getTasks() : Observable<Response> {

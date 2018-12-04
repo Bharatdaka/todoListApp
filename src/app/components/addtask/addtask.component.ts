@@ -12,6 +12,7 @@ export class AddtaskComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
     this.newTask = new Task(null, null, null);
   }
@@ -19,9 +20,6 @@ export class AddtaskComponent implements OnInit {
   handleSaveBtnClick() {
     this.newTask.priority = +this.newTask.priority;
     this.newTask.status = !!(+this.newTask.status);
-    console.log(this.newTask.label);
-    console.log(this.newTask.priority);
-    console.log(this.newTask.status);
 
     this.addTaskforSubmit.emit(this.newTask);
     this.newTask = new Task(null, null, null);
