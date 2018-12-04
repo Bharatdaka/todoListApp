@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/models/task';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'tdlist',
@@ -8,27 +9,24 @@ import { Task } from 'src/app/models/task';
 })
 export class TdlistComponent implements OnInit {
   tasks : Task[];
-  constructor() { console.log("called constructor");}
+  constructor(private taskService: TaskService) { console.log("called constructor");}
   
   ngOnInit() {
-    this.tasks = [ new Task("Learn Angular", 1, false),
-                   new Task("Task2", 1, false),
-                   new Task("Task3", 3, true)];
+    this.tasks = this.taskService.getTasks();
   }
 
   changeStatus(task:Task) {
-    task.status = !task.status; 
+    this.taskService.changeStatus(task); 
   }
 
   priorityUp(task:Task) {
-    task.priority++;
+    this.taskService.priorityUp(task);
   }
   priorityDown(task:Task) {
-    task.priority--;
+    this.taskService.priorityDown(task);
   }
 
   addTask(task:Task) {
-    console.log("bharat");
-    this.tasks.push(task);
+    this.taskService.addTask(task);
   }
 }

@@ -1,27 +1,38 @@
-<div>
-    Label: <input type="text" #label>
-</div>
-<div>
-    Status:
-    <select #status>
-      <option>true</option>
-      <option>false</option>
-    </select>
-</div>
-<div>
-    Priority:
-    <select #priority>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-</div>
-<button 
-    (click)="handleSaveBtnClick(label, status, priority)"
->
-    Save
-</button>
+<form #addTaskForm="ngForm"(ngSubmit)="handleSaveBtnClick()">
+  <div>
+      Label: 
+      <input name="label" type="text" [(ngModel)]="newTask.label" #label="ngModel" required minlength="3"/>
+      <div *ngIf="label.invalid && (label.dirty || label.touched)">
+        <div *ngIf="label.errors.required" class="error">
+          Label is required
+        </div>
+        <div *ngIf="label.errors.minlength" class="error">
+          Min 4 length
+        </div>
+      </div>
+  </div>
+
+  <div>
+      Status:
+      <select name="status" type="text" [(ngModel)]="newTask.status">
+        <option>true</option>
+        <option>false</option>
+      </select>
+  </div>
+
+  <div>
+      Priority:
+      <select name="priority" type="text" [(ngModel)]="newTask.priority">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+  </div>
+
+  <button type="submit" [disabled]="addTaskForm.invalid">Save</button>
+</form>
+
   
   

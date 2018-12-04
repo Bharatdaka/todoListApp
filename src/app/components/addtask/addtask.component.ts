@@ -8,22 +8,23 @@ import { Task } from 'src/app/models/task';
 })
 export class AddtaskComponent implements OnInit {
   @Output() addTaskforSubmit = new EventEmitter();
+  newTask : Task;
 
   constructor() { }
 
   ngOnInit() {
+    this.newTask = new Task(null, null, null);
   }
 
-  handleSaveBtnClick(
-    label:HTMLInputElement,
-    status:HTMLInputElement,
-    priority:HTMLInputElement
-  ) {
-    console.log(label.value);
-    console.log(+priority.value);
-    console.log(!!(+status.value));
-    let newTask = new Task(label.value, +priority.value, !!(+status.value));
-    this.addTaskforSubmit.emit(newTask);
+  handleSaveBtnClick() {
+    this.newTask.priority = +this.newTask.priority;
+    this.newTask.status = !!(+this.newTask.status);
+    console.log(this.newTask.label);
+    console.log(this.newTask.priority);
+    console.log(this.newTask.status);
+
+    this.addTaskforSubmit.emit(this.newTask);
+    this.newTask = new Task(null, null, null);
   }
 
 }
