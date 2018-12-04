@@ -8,7 +8,7 @@
 
 <div class = "tasksize">
   <ul *ngFor ="let task of tasks;">
-    <div> Label : {{ task.label }} </div>
+    <div> Label : {{ task.label | labelcase }} </div>
     <div> Piority : {{ task.priority }} <button (click)="priorityUp(task)">&uarr;</button>  <button (click)="priorityDown(task)">&darr;</button></div>
     <div [class.color1]="task.status"> Status : {{ task.status ? "completed" : "In-progress" }}  <button (click) = "changeStatus(task)"> {{ task.status ?  "In-progress" : "completed"  }} </button></div>
     <hr/>

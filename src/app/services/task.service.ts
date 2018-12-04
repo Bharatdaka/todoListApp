@@ -8,7 +8,7 @@ export class TaskService {
   private tasks : Task[];
 
   constructor() {
-    this.tasks = [ new Task("Learn Angular", 1, false),
+    this.tasks = [ new Task("Learn angular", 1, false),
     new Task("Task2", 1, false),
     new Task("Task3", 3, true)];
   }

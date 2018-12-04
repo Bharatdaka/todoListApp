@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TdlistComponent } from './components/tdlist/tdlist.component';
 import { AddtaskComponent } from './components/addtask/addtask.component';
+import { LabelcasePipe } from './pipes/labelcase.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TdlistComponent,
-    AddtaskComponent
+    AddtaskComponent,
+    LabelcasePipe
   ],
   imports: [
     BrowserModule,
