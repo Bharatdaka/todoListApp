@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Task } from 'src/app/models/task';
+import { TaskService } from 'src/app/services/task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'addtask',
@@ -7,10 +9,11 @@ import { Task } from 'src/app/models/task';
   styleUrls: ['./addtask.component.css']
 })
 export class AddtaskComponent implements OnInit {
-  @Output() addTaskforSubmit = new EventEmitter();
+  // @Output() addTaskforSubmit = new EventEmitter();
   newTask : Task;
 
-  constructor() { }
+  constructor(private taskService: TaskService,
+    private router:Router) { }
 
 
   ngOnInit() {
@@ -21,8 +24,11 @@ export class AddtaskComponent implements OnInit {
     this.newTask.priority = +this.newTask.priority;
     this.newTask.status = !!(+this.newTask.status);
 
-    this.addTaskforSubmit.emit(this.newTask);
-    this.newTask = new Task(null, null, null);
+    console.log(this.newTask);
+    this.taskService.addTask(this.newTask).subscribe(res => this.router.navigate(['/home']));
+
+    // this.addTaskforSubmit.emit(this.newTask);
+    // this.newTask = new Task(null, null, null);
   }
 
 }

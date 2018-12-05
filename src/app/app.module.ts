@@ -8,6 +8,7 @@ import { AddtaskComponent } from './components/addtask/addtask.component';
 import { FormsModule } from '@angular/forms';
 import { LabelcasePipe } from './pipes/labelcase.pipe';
 import { HttpModule } from '@angular/http';
+import { AboutComponent } from './components/about/about.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HttpModule } from '@angular/http';
     AppComponent,
     TdlistComponent,
     AddtaskComponent,
-    LabelcasePipe
+    LabelcasePipe,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

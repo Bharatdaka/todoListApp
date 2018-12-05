@@ -25,12 +25,9 @@ export class TdlistComponent implements OnInit {
   priorityUp(task:Task) {
     this.taskService.priorityUp(task).subscribe();
   }
+  
   priorityDown(task:Task) {
     this.taskService.priorityDown(task).subscribe();
   }
 
-  addTask(task:Task) {
-    this.taskService.addTask(task).subscribe();
-    this.tasks.push(task);
-  }
 }

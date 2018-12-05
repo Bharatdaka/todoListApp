@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TaskService {
-  private tasks : Task[];
+  // private tasks : Task[];
   private url = 'http://localhost:3000/tasks';
 
   constructor(private http: Http) {}
