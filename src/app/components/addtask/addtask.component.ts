@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Task } from 'src/app/models/task';
 import { TaskService } from 'src/app/services/task.service';
 import { Router } from '@angular/router';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'addtask',

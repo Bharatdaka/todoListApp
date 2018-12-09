@@ -10,6 +10,7 @@ import { Http } from '@angular/http';
 })
 export class TdlistComponent implements OnInit {
   tasks : Task[];
+
   constructor(private taskService: TaskService,
               private http: Http) { }
   

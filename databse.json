@@ -3,8 +3,8 @@
     {
       "id": 1,
       "label": "Learn angular",
-      "priority": 4,
-      "status": false
+      "priority": 8,
+      "status": true
     },
     {
       "id": 2,
@@ -15,8 +15,8 @@
     {
       "id": 3,
       "label": "task3",
-      "priority": 3,
-      "status": true
+      "priority": 4,
+      "status": false
     },
     {
       "label": "hello world",
@@ -27,8 +27,14 @@
     {
       "label": "qwqwqwqwqwq",
       "priority": 3,
-      "status": false,
+      "status": true,
       "id": 5
+    },
+    {
+      "label": "dsf efgwe",
+      "priority": 2,
+      "status": false,
+      "id": 6
     }
   ]
 }
